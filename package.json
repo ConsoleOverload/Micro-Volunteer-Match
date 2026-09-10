@@ -1,0 +1,20 @@
+{
+  "name": "micro-volunteer-match-monorepo",
+  "version": "1.0.0",
+  "description": "Micro-Volunteer Match - Intelligent 15-Minute Micro-Volunteering Platform",
+  "main": "server/server.js",
+  "scripts": {
+    "setup": "npm install && cd server && npm install && cd ../client && npm install",
+    "server": "cd server && npm run dev",
+    "client": "cd client && npm run dev",
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "seed": "cd server && npm run seed",
+    "start": "cd server && npm start"
+  },
+  "keywords": ["mern", "micro-volunteering", "ai-matching", "react", "express", "mongodb"],
+  "author": "Micro-Volunteer Team",
+  "license": "MIT",
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  }
+}

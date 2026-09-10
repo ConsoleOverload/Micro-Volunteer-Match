@@ -1,0 +1,485 @@
+const seedUsers = [
+  // Demo Volunteer — matches many Design & Education tasks
+  {
+    name: 'Sanjana',
+    email: 'demo@example.com',
+    password: 'Demo@123',
+    role: 'volunteer',
+    avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=Sanjana',
+    bio: 'Frontend developer & student passionate about design, education, and quick community help.',
+    skills: ['Python', 'React', 'JavaScript', 'Graphic Design', 'UI Design', 'Tutoring'],
+    interests: ['Education', 'Design', 'Technology', 'Community'],
+    availability: {
+      weekdays: true,
+      weekends: true,
+      timeSlots: ['Afternoon', 'Evening'],
+      hoursPerWeek: 3,
+    },
+    location: 'Campus / Online',
+    completedTasksCount: 5,
+    contributionMinutes: 75,
+    contributionScore: 800,
+    streakDays: 3,
+    preferredDuration: 20,
+  },
+
+  // Task Creator — Rahul posts design / tech tasks
+  {
+    name: 'Rahul Sharma',
+    email: 'rahul@example.com',
+    password: 'Demo@123',
+    role: 'volunteer',
+    avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=Rahul',
+    bio: 'CS junior who loves organising coding club events. Always needs a quick design hand!',
+    skills: ['JavaScript', 'Event Support', 'Campus Assistance'],
+    interests: ['Technology', 'Design', 'Community'],
+    availability: {
+      weekdays: true,
+      weekends: true,
+      timeSlots: ['Morning', 'Evening'],
+      hoursPerWeek: 2,
+    },
+    location: 'Engineering Block / Campus',
+    completedTasksCount: 2,
+    contributionMinutes: 30,
+    contributionScore: 320,
+    streakDays: 1,
+    preferredDuration: 20,
+  },
+
+  // Task Creator — Ananya posts design & community tasks
+  {
+    name: 'Ananya Mehta',
+    email: 'ananya@example.com',
+    password: 'Demo@123',
+    role: 'volunteer',
+    avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=Ananya',
+    bio: 'Community coordinator running the student volunteer hub. Always posting quick tasks!',
+    skills: ['Event Support', 'Community Outreach', 'Spanish', 'Design'],
+    interests: ['Community', 'Environment', 'Design'],
+    availability: {
+      weekdays: true,
+      weekends: false,
+      timeSlots: ['Morning', 'Afternoon'],
+      hoursPerWeek: 4,
+    },
+    location: 'Student Union Room 204',
+    completedTasksCount: 0,
+    contributionMinutes: 0,
+    contributionScore: 0,
+    streakDays: 0,
+    preferredDuration: 15,
+  },
+
+  // Task Creator — Alex posts tutoring tasks
+  {
+    name: 'Alex Rivera',
+    email: 'alex@example.com',
+    password: 'Demo@123',
+    role: 'volunteer',
+    avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=Alex',
+    bio: 'CS Teaching Assistant who often needs Python and Java tutoring help for first-year students.',
+    skills: ['Java', 'Python', 'Data Structures', 'C++'],
+    interests: ['Education', 'Technology'],
+    availability: {
+      weekdays: true,
+      weekends: false,
+      timeSlots: ['Afternoon', 'Evening'],
+      hoursPerWeek: 2,
+    },
+    location: 'Engineering Building',
+    completedTasksCount: 0,
+    contributionMinutes: 0,
+    contributionScore: 0,
+    streakDays: 0,
+    preferredDuration: 15,
+  },
+
+  // Volunteer — Elena does translation
+  {
+    name: 'Elena Rostova',
+    email: 'elena@example.com',
+    password: 'Demo@123',
+    role: 'volunteer',
+    avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=Elena',
+    bio: 'Linguistics student fluent in English, Spanish, and French.',
+    skills: ['Translation', 'Spanish', 'French', 'Proofreading', 'Writing'],
+    interests: ['Translation', 'Education', 'Community'],
+    availability: {
+      weekdays: true,
+      weekends: true,
+      timeSlots: ['Afternoon', 'Evening'],
+      hoursPerWeek: 3,
+    },
+    location: 'Humanities Hall / Online',
+    completedTasksCount: 8,
+    contributionMinutes: 120,
+    contributionScore: 1250,
+    streakDays: 4,
+    preferredDuration: 15,
+  },
+
+  // Volunteer — Priya environmental tasks
+  {
+    name: 'Priya Sharma',
+    email: 'priya@example.com',
+    password: 'Demo@123',
+    role: 'volunteer',
+    avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=Priya',
+    bio: 'Environmental Science student passionate about sustainability projects on campus.',
+    skills: ['Environment', 'Research', 'Community Outreach'],
+    interests: ['Environment', 'Community', 'Education'],
+    availability: {
+      weekdays: true,
+      weekends: true,
+      timeSlots: ['Morning', 'Afternoon'],
+      hoursPerWeek: 5,
+    },
+    location: 'Green Science Quad',
+    completedTasksCount: 3,
+    contributionMinutes: 60,
+    contributionScore: 625,
+    streakDays: 2,
+    preferredDuration: 20,
+  },
+
+  // Volunteer — Sophia math tutor
+  {
+    name: 'Sophia Patel',
+    email: 'sophia@example.com',
+    password: 'Demo@123',
+    role: 'volunteer',
+    avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=Sophia',
+    bio: 'Math tutor and peer mentor. Happy to explain calculus, stats, or algebra.',
+    skills: ['Calculus', 'Statistics', 'Tutoring', 'Math'],
+    interests: ['Education', 'Technology'],
+    availability: {
+      weekdays: true,
+      weekends: false,
+      timeSlots: ['Afternoon'],
+      hoursPerWeek: 3,
+    },
+    location: 'Science Library',
+    completedTasksCount: 4,
+    contributionMinutes: 60,
+    contributionScore: 625,
+    streakDays: 2,
+    preferredDuration: 15,
+  },
+
+  // Creator — Liam for event/audio tasks
+  {
+    name: 'Liam O\'Connor',
+    email: 'liam@example.com',
+    password: 'Demo@123',
+    role: 'volunteer',
+    avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=Liam',
+    bio: 'Campus Radio Manager. Frequently posts quick audio and event-support tasks.',
+    skills: ['Audio Editing', 'Social Media', 'Writing'],
+    interests: ['Event Support', 'Technology', 'Community'],
+    availability: {
+      weekdays: true,
+      weekends: true,
+      timeSlots: ['Evening'],
+      hoursPerWeek: 2,
+    },
+    location: 'Student Center Radio Lab',
+    completedTasksCount: 1,
+    contributionMinutes: 15,
+    contributionScore: 175,
+    streakDays: 1,
+    preferredDuration: 15,
+  },
+
+  // Admin account
+  {
+    name: 'Marcus Vance',
+    email: 'admin@example.com',
+    password: 'Demo@123',
+    role: 'admin',
+    avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=Marcus',
+    bio: 'Platform Moderator & Community Director.',
+    skills: ['Moderation', 'Community', 'Leadership'],
+    interests: ['Community', 'Technology'],
+    availability: {
+      weekdays: true,
+      weekends: false,
+      timeSlots: ['Morning', 'Afternoon'],
+      hoursPerWeek: 3,
+    },
+    location: 'Main Administration',
+    completedTasksCount: 0,
+    contributionMinutes: 0,
+    contributionScore: 0,
+    streakDays: 0,
+    preferredDuration: 15,
+  },
+];
+
+// Tasks clearly labeled as posted by real users (NOT AI-generated)
+const seedTaskTemplates = [
+  // --- DESIGN TASKS (posted by Rahul, matches Sanjana perfectly) ---
+  {
+    title: 'Design a poster for our Coding Club event',
+    description:
+      'Our coding club is hosting a weekend hackathon and we need a clean, attractive 1-page digital poster (A4) for sharing on Instagram and WhatsApp. Brand colors are indigo and white.',
+    category: 'Design',
+    requiredSkills: ['Graphic Design', 'UI Design'],
+    duration: 20,
+    difficulty: 'Easy',
+    location: 'Online / Remote',
+    isRemote: true,
+    preferredTime: 'Evening',
+    contactInstructions: 'Share Canva or Figma file link after acceptance.',
+  },
+  {
+    title: 'Create Instagram story graphics for Tech Fest',
+    description:
+      'Need 3 colorful Instagram story templates (1080x1920px) for our annual college tech-fest. Announce schedule, speakers, and prize pool. Flexible on design style.',
+    category: 'Design',
+    requiredSkills: ['Graphic Design', 'Figma'],
+    duration: 25,
+    difficulty: 'Easy',
+    location: 'Online',
+    isRemote: true,
+    preferredTime: 'Afternoon',
+    contactInstructions: 'Export PNG files to shared Google Drive folder.',
+  },
+
+  // --- TUTORING TASKS (posted by Alex) ---
+  {
+    title: 'Help with Python Basics for first-year student',
+    description:
+      'A freshman is struggling to understand Python functions and list comprehensions. Need a 15-minute online session to walk through 2-3 examples together.',
+    category: 'Tutoring',
+    requiredSkills: ['Python', 'Tutoring'],
+    duration: 15,
+    difficulty: 'Easy',
+    location: 'Online / Zoom',
+    isRemote: true,
+    preferredTime: 'Evening (6:30 PM)',
+    contactInstructions: 'Zoom link sent upon acceptance.',
+  },
+  {
+    title: 'Explain JavaScript promises and async/await',
+    description:
+      'Second-year student needs a 20-min walkthrough of async/await and promises in JavaScript. Live coding session preferred.',
+    category: 'Tutoring',
+    requiredSkills: ['JavaScript', 'Tutoring'],
+    duration: 20,
+    difficulty: 'Medium',
+    location: 'Online / Zoom',
+    isRemote: true,
+    preferredTime: 'Evening (7:00 PM)',
+    contactInstructions: 'Meet link provided on acceptance.',
+  },
+  {
+    title: 'Teach Basic Excel for data entry',
+    description:
+      'A volunteer coordinator needs to learn basic Excel formulas (SUM, VLOOKUP, conditional formatting) for managing volunteer hours. 30-minute intro session.',
+    category: 'Tutoring',
+    requiredSkills: ['Tutoring', 'Research'],
+    duration: 30,
+    difficulty: 'Easy',
+    location: 'Online / Screen Share',
+    isRemote: true,
+    preferredTime: 'Afternoon',
+    contactInstructions: 'Google Meet link provided after acceptance.',
+  },
+  {
+    title: 'Explain Calculus Integration by Parts concept',
+    description:
+      'Sophomore student needs help visualising integration by parts with 2 worked examples. 15-minute session via Zoom.',
+    category: 'Tutoring',
+    requiredSkills: ['Calculus', 'Math', 'Tutoring'],
+    duration: 15,
+    difficulty: 'Medium',
+    location: 'Online / Zoom',
+    isRemote: true,
+    preferredTime: 'Afternoon (4:00 PM)',
+    contactInstructions: 'Link emailed 10 mins prior.',
+  },
+
+  // --- TECHNOLOGY TASKS (posted by Rahul) ---
+  {
+    title: 'Fix a React component layout bug on mobile',
+    description:
+      'Cards are overlapping on mobile screens in our student club webpage. Need a quick CSS flexbox fix. 15-minute screen-share to diagnose and resolve.',
+    category: 'Technology',
+    requiredSkills: ['React', 'JavaScript'],
+    duration: 15,
+    difficulty: 'Medium',
+    location: 'Online / Discord',
+    isRemote: true,
+    preferredTime: 'Evening (7:00 PM)',
+    contactInstructions: 'Join Discord #code-help channel on acceptance.',
+  },
+  {
+    title: 'Quick Git & GitHub walkthrough for a classmate',
+    description:
+      'Walk a classmate through git clone, add, commit, push commands via 15-min screen share. They have a project to submit tomorrow.',
+    category: 'Technology',
+    requiredSkills: ['JavaScript', 'Tutoring'],
+    duration: 15,
+    difficulty: 'Easy',
+    location: 'Online / Zoom',
+    isRemote: true,
+    preferredTime: 'Evening (8:00 PM)',
+    contactInstructions: 'Zoom link sent automatically on acceptance.',
+  },
+
+  // --- TRANSLATION TASKS (posted by Ananya) ---
+  {
+    title: 'Translate a College Notice into Spanish',
+    description:
+      'Translate our 1-page health clinic notice (250 words) from English into clear, simple Spanish for non-English-speaking campus staff.',
+    category: 'Translation',
+    requiredSkills: ['Translation', 'Spanish'],
+    duration: 15,
+    difficulty: 'Easy',
+    location: 'Online / Google Docs',
+    isRemote: true,
+    preferredTime: 'Afternoon',
+    contactInstructions: 'Edit Google Doc link provided after acceptance.',
+  },
+  {
+    title: 'Proofread French notice for Cultural Exchange Club',
+    description:
+      'Review a 150-word French announcement for grammatical accuracy before our club newsletter goes out.',
+    category: 'Translation',
+    requiredSkills: ['French', 'Translation', 'Proofreading'],
+    duration: 10,
+    difficulty: 'Easy',
+    location: 'Online',
+    isRemote: true,
+    preferredTime: 'Flexible',
+    contactInstructions: 'Send corrections via chat.',
+  },
+
+  // --- COMMUNITY TASKS (posted by Ananya) ---
+  {
+    title: 'Sort Donation Materials at Student Union',
+    description:
+      'Help sort winter coat donations into size bins (S/M/L/XL) for local shelter drive at Student Union Room 108. Takes about 25 minutes.',
+    category: 'Community',
+    requiredSkills: ['Community Outreach'],
+    duration: 25,
+    difficulty: 'Easy',
+    location: 'Student Union Room 108',
+    isRemote: false,
+    preferredTime: 'Afternoon (2:00 PM)',
+    contactInstructions: 'Sign in at volunteer table at the entrance.',
+  },
+  {
+    title: 'Assist with sorting book donations at library',
+    description:
+      'Categorise donated children textbooks and novels by age group for 30 minutes at the campus library basement.',
+    category: 'Community',
+    requiredSkills: ['Community Outreach'],
+    duration: 30,
+    difficulty: 'Easy',
+    location: 'Main Library Basement Room B-12',
+    isRemote: false,
+    preferredTime: 'Afternoon (3:00 PM)',
+    contactInstructions: 'Meet at Library lobby reception desk.',
+  },
+
+  // --- ENVIRONMENT TASKS (posted by Priya) ---
+  {
+    title: 'Find research papers on urban sustainability',
+    description:
+      'Collate 3-4 reputable open-access PDF resources on municipal composting models for a student research group. Send links in a shared document.',
+    category: 'Environment',
+    requiredSkills: ['Research', 'Environment'],
+    duration: 15,
+    difficulty: 'Easy',
+    location: 'Online',
+    isRemote: true,
+    preferredTime: 'Flexible',
+    contactInstructions: 'Send paper URLs via direct message.',
+  },
+
+  // --- EVENT SUPPORT TASKS (posted by Liam) ---
+  {
+    title: 'Help Set Up Event Chairs for Freshers Orientation',
+    description:
+      'Need 2 energetic volunteers to arrange 30 foldable chairs and hang the entrance welcome banner before Freshers orientation starts.',
+    category: 'Event Support',
+    requiredSkills: ['Event Support'],
+    duration: 15,
+    difficulty: 'Easy',
+    location: 'Main Auditorium Foyer',
+    isRemote: false,
+    preferredTime: 'Morning (9:30 AM)',
+    contactInstructions: 'Ask for Liam near auditorium doors.',
+  },
+  {
+    title: 'Set up audio equipment for Campus Acoustic Night',
+    description:
+      'Assist for 20 minutes setting up 2 microphones and speaker stands in Student Union Courtyard before the acoustic set begins.',
+    category: 'Event Support',
+    requiredSkills: ['Event Support', 'Audio Editing'],
+    duration: 20,
+    difficulty: 'Easy',
+    location: 'Student Union Courtyard Stage',
+    isRemote: false,
+    preferredTime: 'Evening (5:30 PM)',
+    contactInstructions: 'Ask for Liam at the acoustic stage desk.',
+  },
+
+  // --- ADDITIONAL TASKS across categories ---
+  {
+    title: 'Help format a resume for an international student',
+    description:
+      'Provide quick 15-minute feedback on resume formatting and section headings for an upcoming campus job fair.',
+    category: 'Tutoring',
+    requiredSkills: ['Proofreading', 'Writing', 'Tutoring'],
+    duration: 15,
+    difficulty: 'Easy',
+    location: 'Online / Google Docs',
+    isRemote: true,
+    preferredTime: 'Evening',
+    contactInstructions: 'Add comments directly on shared resume doc.',
+  },
+  {
+    title: 'Design an email header banner for Volunteer Newsletter',
+    description:
+      'Create a 600x200px email header banner with our logo and tagline: "Give 15 minutes. Make an impact." Keep it clean and professional.',
+    category: 'Design',
+    requiredSkills: ['Graphic Design', 'UI Design'],
+    duration: 15,
+    difficulty: 'Easy',
+    location: 'Online',
+    isRemote: true,
+    preferredTime: 'Flexible',
+    contactInstructions: 'Attach PNG in reply message.',
+  },
+  {
+    title: 'Record a short audio voiceover for community announcement',
+    description:
+      'Read a short pre-scripted 2-minute announcement clearly in English for our campus podcast intro segment.',
+    category: 'Community',
+    requiredSkills: ['Audio Editing', 'Writing'],
+    duration: 10,
+    difficulty: 'Easy',
+    location: 'Online / Voice Memo',
+    isRemote: true,
+    preferredTime: 'Flexible',
+    contactInstructions: 'Upload MP3 file link in chat.',
+  },
+  {
+    title: 'Help organise recycled cardboard at campus hub',
+    description:
+      'Assist campus green team flatten and bundle cardboard boxes for 20 minutes after peak delivery hours at North Campus.',
+    category: 'Environment',
+    requiredSkills: ['Environment', 'Community Outreach'],
+    duration: 20,
+    difficulty: 'Easy',
+    location: 'North Campus Recycling Station',
+    isRemote: false,
+    preferredTime: 'Morning (10:00 AM)',
+    contactInstructions: 'Report to Priya at station entrance.',
+  },
+];
+
+module.exports = { seedUsers, seedTaskTemplates };
