@@ -51,8 +51,12 @@ app.use((err, req, res, next) => {
 const PORT = process.env.PORT || 5000;
 
 // Connect DB and launch server
-connectDB().then(() => {
-  app.listen(PORT, () => {
-    console.log(`🚀 [Micro-Volunteer Match API] Server running on http://localhost:${PORT}`);
-  });
+connectDB().catch((err) => {
+  console.error('Failed to connect to MongoDB:', err.message);
+  console.log('Server will start but database operations may fail...');
+});
+
+app.listen(PORT, () => {
+  console.log(`🚀 [Micro-Volunteer Match API] Server running on http://localhost:${PORT}`);
+  console.log(`📡 MongoDB URI: ${process.env.MONGO_URI ? 'Configured' : 'Using local fallback'}`);
 });
