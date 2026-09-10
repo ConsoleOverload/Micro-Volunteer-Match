@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Micro-Volunteer Match (MERN Stack)
 
 **Micro-Volunteer Match** is a full-stack web application designed for college campuses. It connects students to small, 15-minute community help tasks (tutoring, donation sorting, poster design, translation, directions, etc.) by matching task requests to nearby volunteers based on skills, interests, and campus zones.
