@@ -1,8 +1,9 @@
 import React, { createContext, useState, useEffect, useContext } from 'react';
 import axios from 'axios';
 
-// Ensure baseURL points to backend API server
-axios.defaults.baseURL = 'http://localhost:5000';
+// Use Render backend in production, localhost during local development
+axios.defaults.baseURL =
+  import.meta.env.VITE_API_BASE_URL || 'http://localhost:5000/api';
 
 const AuthContext = createContext();
 
