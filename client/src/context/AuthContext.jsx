@@ -27,7 +27,7 @@ export const AuthProvider = ({ children }) => {
   const fetchCurrentUser = async () => {
     try {
       setLoading(true);
-      const res = await axios.get('/api/auth/me');
+      const res = await axios.get('/auth/me');
       setUser(res.data);
     } catch (err) {
       console.error('Failed to fetch user context:', err);
@@ -38,7 +38,7 @@ export const AuthProvider = ({ children }) => {
   };
 
   const login = async (email, password) => {
-    const res = await axios.post('/api/auth/login', { email, password });
+    const res = await axios.post('/auth/login', { email, password });
     const { token: newToken, user: userData } = res.data;
     localStorage.setItem('mvm_token', newToken);
     setToken(newToken);
@@ -47,7 +47,7 @@ export const AuthProvider = ({ children }) => {
   };
 
   const signup = async (formData) => {
-    const res = await axios.post('/api/auth/signup', formData);
+    const res = await axios.post('/auth/signup', formData);
     const { token: newToken, user: userData } = res.data;
     localStorage.setItem('mvm_token', newToken);
     setToken(newToken);
